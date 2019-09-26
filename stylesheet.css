@@ -1,0 +1,25 @@
+#homepage{
+    background: url("images/coverImg.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#homepage-container{
+    margin-top: 6%;
+    padding: 50px 25px ;
+
+}
+label{
+    color: white;
+}
+
+nav{
+    background-color: #0c5460;
+}
+.btn-outline-light{
+    outline-color: transparent;
+}
+.navbar-header {
+    float: right;
+}
