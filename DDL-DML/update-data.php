@@ -1,7 +1,7 @@
 <?php
 session_start();
-include "../db-creation/database-connection.php";
-include "db-creation/database-connection.php";
+include "db-creation/database-connection.php"; //edit
+include "../db-creation/database-connection.php"; //update
 if(isset($_GET['edit'])){
     $id = $_GET['edit'];
 
@@ -37,7 +37,7 @@ if (isset($_POST['update'])){
 
     try{
         if(isset($img) and $img !="") {
-        move_uploaded_file($_FILES['image']['tmp_name'], $target);
+            move_uploaded_file($_FILES['image']['tmp_name'], $target);
 
             $sql = "UPDATE book_record.book_shelf 
 SET book_name = '$bookName' , publisher = '$publisher' , isbn = '$isbn' , cover = '$image'
@@ -54,7 +54,7 @@ Where id = $id_row";
         else{
             $sql = "UPDATE book_record.book_shelf 
 SET book_name = '$bookName' , publisher = '$publisher' , isbn = '$isbn' 
-Where id = $id_row";
+ Where id = $id_row";
 
             // Prepare statement
             $stmt = $conn->prepare($sql);

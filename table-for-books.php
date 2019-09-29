@@ -20,10 +20,10 @@ include "DDL-DML/select-data.php";
 
     <h1 class="font-weight-bold offset-4 col-3" style="display: inline; text-align: center">Book Record</h1>
     <div class="float-right">
-        <label for="searchBox" ></label>
-        <label for="searchBox" >Search</label>
-        <input type="text" class="text-dark  mt-2 mr-2" name="searchBox" id="searchBox" onKeyUp="setTimeout('chk_me()',3000);"
-               value="<?php echo isset($_GET['text']) ? $_GET['text'] : ''; ?>">
+        <label for="searchBox" style="color: #1d2124" class="mr-2">Search</label>
+        <input type="text" class="text-dark  mt-2 mr-2" name="searchBox" id="searchBox"
+               onKeyUp="setTimeout('chk_me()',3000);"
+               value="<?php echo isset($_GET['search_text']) ? $_GET['search_text'] : ''; ?>">
     </div>
 
 </div>
@@ -62,19 +62,52 @@ include "DDL-DML/select-data.php";
         <?php } ?>
         </tbody>
     </table>
-<script>
-    function chk_me(){
-        let v = $("#searchBox").val();
-        console.log(v)
-        if (v!="") {
-            window.location.replace("table-for-books.php?text=" + v);
-        }
-        alert("hello");
+    <div class="text-center">
+        <button id="btnPrevious" class="btn-light" onclick="previous();">&laquo; Previous</button>
+        <button id="btnNext" class="btn-success" onclick="next();">Next &raquo;</button>
+    </div>
+    <?php
+    if ($page >= $pages) {
+        echo "<script> $('#btnNext').attr('disabled' , true); </script>";
+    } else {
+        echo "<script> $('#btnNext').removeAttr('disabled' , true); </script>";
     }
-</script>
+    if ($page == 1) {
+        echo "<script> $('#btnPrevious').attr('disabled' , true); </script>";
+    } else {
+        echo "<script> $('#btnPrevious').removeAttr('disabled' , true); </script>";
+    }
+    ?>
 
 </div>
+<script>
 
+
+    function previous() {
+
+        let pre = <?php echo $page - 1; ?>;
+        let val = $("#searchBox").val();
+        window.location.replace("table-for-books.php?page=" + pre + "&search_text=" + val);
+
+    }
+
+    function next() {
+        let n = <?php echo $page + 1; ?>;
+        let val = $("#searchBox").val();
+        window.location.replace("table-for-books.php?page=" + n + "&search_text=" + val);
+    }
+
+    function chk_me() {
+        let v = $("#searchBox").val();
+        console.log("value", v);
+        //if (v!="") {
+        console.log("inside if");
+        window.location.replace("table-for-books.php?search_text=" + v);
+        // }
+
+        // alert("hello");
+    }
+</script>
 
 </body>
 </html>

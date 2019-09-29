@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,11 +17,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 
-
-
     <style>
         /* Style the buttons */
-        .btn1 ,.btn2 {
+        .btn1, .btn2 {
             border: none;
             outline: none;
             padding: 10px 16px;
@@ -39,20 +36,19 @@
     </style>
     <script>
 
-        $(document).ready(function(){
+        $(document).ready(function () {
             // $('.navbar-header a').click(function () {
-                let url= document.location.href;
-                console.log(url);
-                let index = url.search("table");
-                console.log(index);
-                if(index>=0){
-                    $('.navbar-header .btn1').removeClass('active1');
-                    $('.navbar-header .btn2').addClass('active1');
-                }
-                else {
-                    $('.navbar-header .btn2').removeClass('active1');
-                    $('.navbar-header .btn1').addClass('active1');
-                }
+            let url = document.location.href;
+            console.log(url);
+            let index = url.search("table");
+            console.log(index);
+            if (index >= 0) {
+                $('.navbar-header .btn1').removeClass('active1');
+                $('.navbar-header .btn2').addClass('active1');
+            } else {
+                $('.navbar-header .btn2').removeClass('active1');
+                $('.navbar-header .btn1').addClass('active1');
+            }
 
             // });
         });
@@ -63,7 +59,7 @@
 <body>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
-        <div class="navbar-header" >
+        <div class="navbar-header">
             <a class="btn1 btn-outline-light" href="home.php">Add Record</a>
             <a class="btn2 btn-outline-light" href="table-for-books.php">Show List</a>
             <!--<button class="btn1  " style="border: none; " onclick="location.href='home.php';">Add Record</button>
