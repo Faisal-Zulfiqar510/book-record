@@ -30,7 +30,7 @@ include "DDL-DML/select-data.php";
 
 
 <div class="table-responsive">
-    <table id="ipInfoTable" class="table table-striped table-bordered table-hover table-condensed text-center">
+    <table  class="table table-striped table-bordered table-hover table-condensed text-center">
         <thead>
         <tr>
             <th>Book Name</th>
@@ -62,9 +62,12 @@ include "DDL-DML/select-data.php";
         <?php } ?>
         </tbody>
     </table>
-    <div class="text-center">
-        <button id="btnPrevious" class="btn-light" onclick="previous();">&laquo; Previous</button>
-        <button id="btnNext" class="btn-success" onclick="next();">Next &raquo;</button>
+    <div class="ml-3">
+        <label for="pageNumber" style="color: #1d2124"><?php echo "Showing " . $page . " of " . $pages?></label>
+        <div class="d-inline ml-5">
+            <button id="btnPrevious" class="btn btn-outline-dark" onclick="previous();">&laquo; Previous</button>
+            <button id="btnNext" class="btn btn-outline-success" onclick="next();">Next &raquo;</button>
+        </div>
     </div>
     <?php
     if ($page >= $pages) {

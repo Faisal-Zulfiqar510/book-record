@@ -10,7 +10,7 @@
     padding: 50px 25px ;
 
 }
-label{
+#homepage-container form label{
     color: white;
 }
 
@@ -22,4 +22,9 @@ nav{
 }
 .navbar-header {
     float: right;
+}
+
+.btn:disabled{
+    cursor: not-allowed !important;
+    opacity: 0.40 !important;
 }
